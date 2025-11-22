@@ -39,26 +39,26 @@ Sistema web desenvolvido em PHP puro com arquitetura MVC para oferecer serviços
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
 │  👤 AUTENTICAÇÃO                                            │
-│     ├─ Login de Restaurantes                               │
-│     ├─ Login de Administradores                            │
-│     ├─ Registro de Novos Restaurantes                      │
-│     └─ Logout com Destruição de Sessão                     │
+│     ├─ Login de Restaurantes                                │
+│     ├─ Login de Administradores                             │
+│     ├─ Registro de Novos Restaurantes                       │
+│     └─ Logout com Destruição de Sessão                      │
 │                                                             │
 │  🛒 CARRINHO DE COMPRAS                                     │
-│     ├─ Adicionar Serviços                                  │
-│     ├─ Remover Serviços                                    │
-│     ├─ Visualizar Total                                    │
-│     └─ Checkout                                            │
+│     ├─ Adicionar Serviços                                   │
+│     ├─ Remover Serviços                                     │
+│     ├─ Visualizar Total                                     │
+│     └─ Checkout                                             │
 │                                                             │
 │  💳 PAGAMENTOS (Efí Bank)                                   │
-│     ├─ PIX (QR Code + Copia e Cola)                        │
-│     ├─ Cartão de Crédito                                   │
-│     ├─ Boleto Bancário                                     │
-│     └─ Carnê (Parcelamento)                                │
+│     ├─ PIX (QR Code + Copia e Cola)                         │
+│     ├─ Cartão de Crédito                                    │
+│     ├─ Boleto Bancário                                      │
+│     └─ Carnê (Parcelamento)                                 │
 │                                                             │
 │  📊 DASHBOARDS                                              │
-│     ├─ Dashboard Administrativo                            │
-│     └─ Dashboard do Restaurante                            │
+│     ├─ Dashboard Administrativo                             │
+│     └─ Dashboard do Restaurante                             │
 │                                                             │
 │  💬 CHAT EM TEMPO REAL                                      │
 │     ├─ Chat Restaurante ↔ Admin                            │
