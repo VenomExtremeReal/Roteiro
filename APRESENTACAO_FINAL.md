@@ -1,4 +1,4 @@
-# 🎤 APRESENTAÇÃO RESTIFY - Roteiro Professor (7 minutos)
+# 🎤 APRESENTAÇÃO RESTIFY - Roteiro (7 minutos)
 
 ---
 
@@ -49,30 +49,32 @@ Montamos o modelo desta forma porque reflete exatamente o fluxo de negócio: res
 
 Vamos demonstrar 2 casos de uso funcionando ao vivo:
 
-### **Caso de Uso 1: Cadastro de Restaurante**
+### **Caso de Uso 1: Chat com Suporte**
 
-**Ator:** Visitante
+**Ator:** Restaurante
 
-**Pré-condições:** Nenhuma
+**Pré-condições:** Restaurante autenticado
 
 **Fluxo Principal:**
-1. Visitante acessa a página de cadastro
-2. Preenche formulário com:
-   - Nome do restaurante
-   - Email
-   - WhatsApp
-   - Endereço completo
-   - Senha
-3. Sistema valida dados
-4. Sistema criptografa senha (bcrypt)
-5. Sistema salva no banco via Repository
-6. Sistema redireciona para login
-7. Restaurante pode fazer login
+1. Restaurante acessa menu "Chat"
+2. Sistema exibe histórico de mensagens
+3. Restaurante digita mensagem no campo de texto
+4. Restaurante clica em "Enviar"
+5. Sistema salva mensagem no banco via Repository
+6. Sistema exibe mensagem na tela com animação
+7. Admin recebe notificação de nova mensagem
+8. Sistema atualiza chat automaticamente (polling a cada 3s)
+9. Admin responde pelo painel administrativo
+10. Restaurante vê resposta em tempo real
 
-**Pós-condições:** Restaurante cadastrado e pode acessar o sistema
+**Fluxos Alternativos:**
+- **3a.** Mensagem vazia: Sistema não permite envio
+- **8a.** Erro no polling: Sistema continua funcionando, tenta novamente
+
+**Pós-condições:** Mensagem registrada e visível para ambas as partes
 
 **Demonstração ao vivo:**
-[Mostrar tela de cadastro, preencher dados, submeter, mostrar sucesso]
+[Login restaurante → Chat → Enviar mensagem → Abrir painel admin → Responder → Mostrar atualização automática]
 
 ---
 
@@ -128,14 +130,14 @@ app/
 └── views/        (interface)
 ```
 
-Vou demonstrar o fluxo completo de **Cadastro de Restaurante**:
+Vou demonstrar o fluxo completo de **Chat com Suporte**:
 
-1. **View** (register.php): Usuário preenche formulário
-2. **Controller** (AuthController): Recebe POST, valida dados
-3. **Service** (AuthService): Aplica regras de negócio (hash senha)
-4. **Repository** (RestaurantRepository): Persiste no banco
-5. **Model** (Restaurant): Representa a entidade
-6. **View**: Exibe confirmação
+1. **View** (chat.php): Usuário digita mensagem
+2. **Controller** (RestaurantController): Recebe POST da mensagem
+3. **Repository** (MessageRepository): Salva mensagem no banco
+4. **Model** (Message): Representa a entidade
+5. **JavaScript** (app.js): Polling busca novas mensagens a cada 3s
+6. **View**: Atualiza chat automaticamente
 
 As camadas estão completamente separadas:
 - Controller coordena o fluxo
@@ -233,7 +235,7 @@ Obrigado pela atenção. Estamos prontos para perguntas."
 |---------|-------|----------|
 | 1. Introdução | 30s | Nome, turma, integrantes, resumo |
 | 2. Modelagem | 1min | Diagrama de classes, entidades, relações |
-| 3. Casos de Uso | 2min | Diagrama + Demo de Cadastro e Contratação |
+| 3. Casos de Uso | 2min | Diagrama + Demo de Chat e Contratação |
 | 4. Arquitetura | 2min | MVC + Repository + 5 Design Patterns |
 | 5. Funcionalidades | 1min | 20 requisitos + Ética/LGPD |
 | 6. Encerramento | 30s | Resumo, aprendizados, agradecimento |
@@ -377,5 +379,3 @@ R: "Dados pessoais (email, telefone, endereço) são coletados apenas com consen
 - Respeitar o tempo (7 minutos)
 
 ---
-
-**VOCÊS CONSTRUÍRAM UM SISTEMA REAL. APRESENTEM COM ORGULHO! 🚀**
